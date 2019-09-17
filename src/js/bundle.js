@@ -1,2 +1,3 @@
-console.log('bundle');
+import './components/services'
+
 
