@@ -1,0 +1,18 @@
+html, body {
+	height: 100%;
+	font-size: 15px;
+	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+}
+
+.content {
+	flex: 1 0 auto;
+}
+
+.footer {
+	flex-shrink: 0;
+}
