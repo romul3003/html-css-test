@@ -91,7 +91,7 @@ export const scripts = () => {
 export const clean = () => del(['dist']);
 
 export const images = () => {
-	return src(['./src/img/**/*.{jpg,jpeg,png,svg,gif,ico}', '!./src/img/sprite-icons/**.*'])
+	return src(['./src/img/**/*.{jpg,jpeg,png,svg,gif,ico}', '!./src/img/sprite/**.*'])
 		.pipe(gulpIf(PRODUCTION, imagemin([
 			imagemin.gifsicle({interlaced: true}),
 			imagemin.jpegtran({progressive: true}),
@@ -107,12 +107,15 @@ export const images = () => {
 };
 
 export const sprite = () => {
-	const spriteData = src('./src/img/sprite-icons/*.*')
+	const spriteData = src('./src/img/sprite/*.*')
 		.pipe(gulpIf(PRODUCTION, imagemin()))
 		.pipe(spritesmith({
 			imgName: 'sprite.png',
-			cssName: '_sprite.scss',
+			cssName: '_sprite-mixins.scss',
 			imgPath: '../img/sprite/sprite.png',
+			cssVarMap: function (sprite) {
+				sprite.name = 'icon-' + sprite.name;
+			},
 			// retinaSrcFilter: './src/img/sprite-icons/*@2x.png',
 			// retinaImgName: 'sprite@2x.png',
 			// retinaImgPath: '../img/sprite/sprite@2x.png',
