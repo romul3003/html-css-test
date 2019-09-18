@@ -48,7 +48,7 @@ export const styles = () => {
 			sass({outputStyle: 'expanded'}),
 			gulpIf(PRODUCTION, combine(postcss(processors), cleanCss({compatibility:'ie8'}), rev())),
 			gulpIf(!PRODUCTION, sourcemaps.write()),
-			dest('./dist/styles'),
+			dest('./build/styles'),
 			gulpIf(PRODUCTION, combine(rev.manifest('css.json'), dest('manifest'))),
 			server.stream()
 	).on('error', notify.onError(function(err) {
@@ -85,10 +85,10 @@ export const scripts = () => {
 				filename: 'bundle.js'
 			},
 		}))
-		.pipe(dest('./dist/js'));
+		.pipe(dest('./build/js'));
 };
 
-export const clean = () => del(['dist']);
+export const clean = () => del(['build']);
 
 export const images = () => {
 	return src(['./src/img/**/*.{jpg,jpeg,png,svg,gif,ico}', '!./src/img/sprite/**.*'])
@@ -103,7 +103,7 @@ export const images = () => {
 				]
 			})
 		])))
-		.pipe(dest('./dist/img'));
+		.pipe(dest('./build/img'));
 };
 
 export const sprite = () => {
@@ -122,13 +122,13 @@ export const sprite = () => {
 			padding: 5
 		}));
 
-	return spriteData.pipe(gulpIf('*.scss', dest('./src/styles/'), dest('./dist/img/sprite/')))
+	return spriteData.pipe(gulpIf('*.scss', dest('./src/styles/'), dest('./build/img/sprite/')))
 };
 
 
 export const fonts = () => {
 	return src('./src/fonts/**/*.*')
-		.pipe(dest('./dist/fonts'))
+		.pipe(dest('./build/fonts'))
 };
 
 export const watchForChanges = () => {
@@ -143,7 +143,7 @@ export const watchForChanges = () => {
 const server = browserSync.create();
 export const serve = done => {
 	server.init({
-		server: 'dist'
+		server: 'build'
 	});
 
 	done();
