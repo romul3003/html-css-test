@@ -47,6 +47,8 @@
 		transition: background-color .2s, color .2s;
 
 		&:hover {
+			text-decoration: none;
+
 			@include for-size(desktop) {
 				@media(hover: hover) and (pointer: fine) {
 					background-color: #3949ab;
@@ -54,6 +56,10 @@
 					cursor: pointer;
 				}
 			}
+		}
+
+		&:focus {
+			outline: none;
 		}
 	}
 }
