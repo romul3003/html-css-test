@@ -7,12 +7,18 @@
 		width: 100%;
 	}
 	&__label {
-		margin-bottom: 0;
+		margin-bottom: 1.5em;
+
+		.message {
+			padding-left: 20px;
+			font-size: 15px;
+			display: none;
+		}
 	}
 
 	&__input {
-		margin-bottom: 1.5em;
 		padding: 1.5em 1em;
+		border: 1px solid transparent;
 		border-radius: 10px;
 		font-weight: 600;
 
@@ -26,6 +32,15 @@
 		//	font-weight: 600; }
 		//&::placeholder { color: $light-black;
 		//	font-weight: 600; }
+
+		&.invalid {
+			border: 1px solid red;
+
+			& + .error-message {
+				color: red;
+				display: block;
+			}
+		}
 	}
 
 	&__btn-wrap {
