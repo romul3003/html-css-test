@@ -1,0 +1,23 @@
+.our-team {
+	background-color: $white;
+
+	&__wrap {
+		padding: 11% 0;
+	}
+
+	&__title {
+		margin-bottom: .75em;
+	}
+
+	&__subtitle {
+		margin: 0 auto 10%;
+
+		@include for-size(mobile-landscape) {
+			width: 85%;
+		}
+
+		@include for-size(desktop) {
+			width: 55%;
+		}
+	}
+}

@@ -1,3 +1,5 @@
+import './font-awesome/brands'
+import './font-awesome/solid'
+import './font-awesome/fontawesome'
 import './components/services'
-
-
+import './components/slider'
