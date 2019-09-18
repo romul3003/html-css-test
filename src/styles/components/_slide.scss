@@ -51,7 +51,7 @@
 
 			@include for-size(desktop) {
 				@media(hover: hover) and (pointer: fine) {
-					background-color: #3949ab;
+					background-color: $blue;
 					color: $white;
 					cursor: pointer;
 				}
