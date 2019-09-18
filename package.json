@@ -1,12 +1,16 @@
 {
   "name": "test",
   "version": "1.0.0",
-  "description": "html-css coder test",
+  "private": true,
+  "homepage": "https://romul3003.github.io/html-css-test",
+  "description": "html-css test",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "gulp",
-    "build": "gulp build --prod"
+    "build": "gulp build --prod",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "keywords": [],
   "author": "",
