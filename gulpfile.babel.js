@@ -32,7 +32,7 @@ export const html = () => {
 		.pipe(gulpIf(PRODUCTION, revReplace({
 			manifest: src('manifest/css.json', {allowEmpty: true})
 		})))
-		.pipe(dest('./dist'))
+		.pipe(dest('./build'))
 };
 
 const processors = [
